@@ -1,0 +1,50 @@
+<div class="relative">
+    <div class="rounded-lg border-gray-500">
+        <div class="flex justify-center">
+            <table class="w-4/5 min-w-96 bg-white border border-gray-300 rounded-lg">
+                <thead>
+                    <tr>
+                        <th class="py-2 px-4 border-b">Nom</th>
+                        <th class="py-2 px-4 border-b">Prenom</th>
+                        <th class="py-2 px-4 border-b">Departement</th>
+                        <th class="py-2 px-4 border-b">Stagiaires</th>
+                        <th class="py-2 px-4 border-b">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (e of empList; track $index) {
+                    <tr class="hover:bg-gray-100">
+                        <td class="py-2 px-4 border-b text-center">{{ e.nom }}</td>
+                        <td class="py-2 px-4 border-b text-center">{{ e.prenom}}</td>
+                        <td class="py-2 px-4 border-b text-center">{{ e.departement }}</td>
+                        @for (st of e.stagiaires; track $index) {
+
+                        <td class="py-2 px-4 border-b text-center">{{ st.nom }}</td>
+
+                        }
+                        <td class="py-2 px-4 border-b flex justify-center space-x-2">
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"
+                                (click)="openEditDialog(e)">
+                                Edit
+                            </button>
+                            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded"
+                                (click)="deleteEncadrant(e.id)">
+                                Remove
+                            </button>
+                            <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-2 rounded"
+                                (click)="openAffectDialog(e.id)">
+                                Affect
+                            </button>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<app-encadrant-edit-dialog *ngIf="isEditDialogVisible" [encadrant]="editedEncadrant"
+    (saveClicked)="saveEditedEncadrant($event)" (cancelClicked)="closeEditDialog()"></app-encadrant-edit-dialog>
+<app-affecte-encadrant *ngIf="isAffectDialogVisible" [encadrantid]="affectedEncadrantId"
+    (saveClicked)="onAffectTask($event)" (cancelClicked)="onCancelAffectTask()"></app-affecte-encadrant>

@@ -1,0 +1,45 @@
+<form [formGroup]="stagiaireForm" (ngSubmit)="onSubmit()" class="max-w-md mx-auto mt-8 mb-4">
+    <div class="mb-4">
+        <label for="nom" class="block text-gray-700 text-sm font-bold mb-2">Nom :</label>
+        <input type="text" id="nom" formControlName="nom"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+    </div>
+
+    <div class="mb-4">
+        <label for="prenom" class="block text-gray-700 text-sm font-bold mb-2">Prenom :</label>
+        <input type="text" id="prenom" formControlName="prenom"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+    </div>
+
+    <div class="mb-4">
+        <label for="age" class="block text-gray-700 text-sm font-bold mb-2">Age :</label>
+        <input type="number" id="age" formControlName="age"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+    </div>
+    <div class="mb-4">
+        <label for="adresse" class="block text-gray-700 text-sm font-bold mb-2">Adresse :</label>
+        <input type="text" id="adresse" formControlName="adresse"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+    </div>
+    <div class="mb-4">
+        <label for="departement" class="block text-gray-700 text-sm font-bold mb-2">Departement :</label>
+        <input type="text" id="departement" formControlName="departement"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+    </div>
+    <div class="mb-4">
+        <label for="dateDebut" class="block text-gray-700 text-sm font-bold mb-2">Date Debut :</label>
+        <input type="date" id="dateDebut" formControlName="dateDebut"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+    </div>
+    <div class="mb-4">
+        <label for="dateFin" class="block text-gray-700 text-sm font-bold mb-2">Date Fin :</label>
+        <input type="date" id="dateFin" formControlName="dateFin"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+    </div>
+    <button type="submit" [disabled]="stagiaireForm.invalid"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        Submit
+    </button>
+</form>
+
+<app-stagiaire-list [stgList]="stagiaireList"></app-stagiaire-list>

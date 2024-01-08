@@ -1,0 +1,40 @@
+<!-- <div class="max-w-md mx-auto mt-8 mb-4">
+    <label for="idstagiaire" class="block text-gray-700 text-sm font-bold mb-2">Stagiaire:</label>
+    <select id="idstagiaire" name="idstagiaire" [(ngModel)]="data.stagiaire.id"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        @for (stagiaire of stagiaires; track $index) {
+        <option [value]="stagiaire.id">{{ stagiaire.nom }}</option>
+        }
+
+    </select>
+
+    <button type="submit" (click)="onSaveClick()"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-4">
+        Affect Tache
+    </button>
+</div> -->
+<!-- affect-task-dialog.component.html -->
+
+<div class="dialog-container">
+    <div class="bg-white p-8 rounded-lg w-1/3">
+        <h2 class="text-xl font-bold mb-4">Affect Task</h2>
+        <label for="idstagiaire" class="block text-gray-700 text-sm font-bold mb-2">Stagiaire:</label>
+        <select id="idstagiaire" name="idstagiaire" [(ngModel)]="selectedStagiaireId"
+            class="shadow appearance-none border rounded w-full py-3 px-4 text-lg text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <!-- Increase the padding and font size for a larger option -->
+            @for (stagiaire of stagiaires; track $index) {
+            <option class="w-full" [value]="stagiaire.id">{{ stagiaire.nom }}</option>
+            }
+        </select>
+        <div class="flex justify-end mt-4">
+            <!-- Increase padding and font size for a larger button -->
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="onSave()">
+                Save
+            </button>
+            <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded ml-2"
+                (click)="onCancel()">
+                Cancel
+            </button>
+        </div>
+    </div>
+</div>

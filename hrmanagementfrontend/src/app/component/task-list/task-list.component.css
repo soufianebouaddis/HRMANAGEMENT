@@ -1,0 +1,8 @@
+
+.mdc-dialog__container{
+    position: absolute;
+    top : 300px;
+    height: auto;
+    width: 500px;
+    left: 500px;
+}

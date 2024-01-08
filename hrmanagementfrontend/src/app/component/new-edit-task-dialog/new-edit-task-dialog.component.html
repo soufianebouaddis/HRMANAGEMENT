@@ -1,0 +1,27 @@
+<div class="dialog-container">
+    <div class="bg-white p-8 rounded-lg w-1/3">
+        <h2 class="text-xl font-bold mb-4">Edit Task</h2>
+
+        <label for="editedTask" class="block mb-2">Description:</label>
+        <input type="text" id="editedTask" class="w-full md:w-96 border rounded-md py-2 px-3 mb-4"
+            [(ngModel)]="tache.description">
+
+        <label for="editedTaskDate" class="block mb-2">Date Limite:</label>
+        <input type="date" id="editedTaskDate" class="w-full md:w-96 border rounded-md py-2 px-3 mb-4"
+            [(ngModel)]="tache.dateLimite">
+
+        <label for="editedTaskStatus" class="block mb-2">Status:</label>
+        <input type="text" id="editedTaskStatus" class="w-full md:w-96 border rounded-md py-2 px-3 mb-4"
+            [(ngModel)]="tache.statut">
+
+        <div class="flex justify-end">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" (click)="onSave()">
+                Save
+            </button>
+            <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-2 rounded ml-2"
+                (click)="onCancel()">
+                Cancel
+            </button>
+        </div>
+    </div>
+</div>

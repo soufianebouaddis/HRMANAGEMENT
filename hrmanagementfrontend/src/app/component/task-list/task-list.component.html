@@ -1,0 +1,46 @@
+
+<div class="relative">
+    <div class="rounded-lg border-gray-500">
+        <div class="flex justify-center">
+            <table class="w-4/5 min-w-96 bg-white border border-gray-300 rounded-lg">
+                <thead>
+                    <tr>
+                        <th class="py-2 px-4 border-b">Description</th>
+                        <th class="py-2 px-4 border-b">Date Limite</th>
+                        <th class="py-2 px-4 border-b">Status</th>
+                        <th class="py-2 px-4 border-b">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let task of taskList; let i = index" class="hover:bg-gray-100">
+                        <td class="py-2 px-4 border-b text-center">{{ task.description }}</td>
+                        <td class="py-2 px-4 border-b text-center">{{ task.dateLimite}}</td>
+                        <td class="py-2 px-4 border-b text-center">{{ task.statut }}</td>
+                        <td class="py-2 px-4 border-b flex justify-center space-x-2">
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"
+                                (click)="openEditDialog(task)">
+                                Edit
+                            </button>
+                            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded"
+                                (click)="deleteTask(task.id)">
+                                Remove
+                            </button>
+                            <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-2 rounded"
+                                (click)="openAffectDialog(task.id)">
+                                Affect
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Move the app-new-edit-task-dialog component here -->
+<app-new-edit-task-dialog *ngIf="isEditDialogVisible" [tache]="editedTask" (saveClicked)="saveNewEditedTask()"
+    (cancelClicked)="closeNewEditDialog()">editnew</app-new-edit-task-dialog>
+
+<!-- Your component's HTML file -->
+<app-affecte-tache *ngIf="isAffectDialogVisible" [taskid]="affectedTaskId"
+    (saveClicked)="onAffectTask($event)" (cancelClicked)="onCancelAffectTask()"></app-affecte-tache>

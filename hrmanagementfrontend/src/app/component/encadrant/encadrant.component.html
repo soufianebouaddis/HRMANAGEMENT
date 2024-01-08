@@ -1,0 +1,25 @@
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" class="max-w-md mx-auto mt-8 mb-4">
+    <div class="mb-4">
+      <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Nom :</label>
+      <input type="text" id="description" formControlName="nom"
+             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+    </div>
+  
+    <div class="mb-4">
+      <label for="dateLimite" class="block text-gray-700 text-sm font-bold mb-2">Prenom :</label>
+      <input type="text" id="dateLimite" formControlName="prenom"
+             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+    </div>
+  
+    <div class="mb-4">
+      <label for="status" class="block text-gray-700 text-sm font-bold mb-2">Departement :</label>
+      <input type="text" id="statut" formControlName="departement"
+             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+    </div>
+  
+    <button type="submit" [disabled]="employeeForm.invalid"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+      Submit
+    </button>
+  </form>
+  <app-encadrant-list [empList]="employees"></app-encadrant-list>

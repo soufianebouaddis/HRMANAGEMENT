@@ -1,0 +1,35 @@
+<div class="dialog-container">
+    <div class="bg-white p-8 rounded-lg w-1/3">
+        <h2 class="text-xl font-bold mb-4">Edit Stagiaire</h2>
+
+        <label for="editedTask" class="block mb-2">Nom:</label>
+        <input type="text" id="nom" class="w-full md:w-96 border rounded-md py-2 px-3 mb-4" [(ngModel)]="stagiaire.nom">
+
+        <label for="editedTask" class="block mb-2">Prenom:</label>
+        <input type="text" id="prenom" class="w-full md:w-96 border rounded-md py-2 px-3 mb-4" [(ngModel)]="stagiaire.prenom">
+
+        <label for="editedTask" class="block mb-2">Age:</label>
+        <input type="number" id="age" class="w-full md:w-96 border rounded-md py-2 px-3 mb-4" [(ngModel)]="stagiaire.age">
+
+        <label for="editedTask" class="block mb-2">Adresse:</label>
+        <input type="text" id="adresse" class="w-full md:w-96 border rounded-md py-2 px-3 mb-4" [(ngModel)]="stagiaire.adresse">
+
+        <label for="editedTask" class="block mb-2">Departement:</label>
+        <input type="text" id="departement" class="w-full md:w-96 border rounded-md py-2 px-3 mb-4" [(ngModel)]="stagiaire.departement">
+
+        <label for="editedTask" class="block mb-2">Date Debut:</label>
+        <input type="date" id="dateDebut" class="w-full md:w-96 border rounded-md py-2 px-3 mb-4" [(ngModel)]="stagiaire.dateDebut">
+
+        <label for="editedTask" class="block mb-2">Date Fin:</label>
+        <input type="date" id="DateFin" class="w-full md:w-96 border rounded-md py-2 px-3 mb-4" [(ngModel)]="stagiaire.dateFin">
+
+        <div class="flex justify-end">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" (click)="onSave()">
+                Save
+            </button>
+            <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-2 rounded ml-2" (click)="onCancel()">
+                Cancel
+            </button>
+        </div>
+    </div>
+</div>
